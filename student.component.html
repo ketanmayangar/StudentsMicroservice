@@ -1,0 +1,60 @@
+<p>student works!</p>
+<div>
+    <h1>Data from Student Microservice</h1>
+    <p>Student Name List</p>
+    <ul>
+      <li *ngFor="let value of apiValues">{{value}}</li>
+    </ul>
+  </div>
+  <div>
+    <h1>Full Student Data from Microservice</h1>
+    <!--<ul>
+  
+      <li>Student Id - {{ Students.id }} </li>
+      <li>  Student Name - {{ Students.name }} </li>
+        <li>  Student Class - {{ Students.class }}</li>
+    </ul>-->
+    <table style="width: 500px;border: solid blue 1px  ;text-align: center;">
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Student Class</th>
+      </tr>
+      <tr>
+        <td>{{ Students.id }}</td>
+        <td>{{ Students.name }}</td>
+        <td>{{ Students.class }}</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+   <h1>Student Searched</h1>
+      <input type="text" class="form-control mr-sm-2" #searchStudent name="searchStudent" value="">
+    <button type="submit" class="btn btn-light my-2 my-sm-0" (click)="search(searchStudent.value)">Search Student By Id</button>
+  
+    <table style="width: 500px;border: solid blue 1px  ;text-align: center;">
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Student Class</th>
+      </tr>
+      <tr>
+        <td>{{ searchedStudents.id }}</td>
+        <td>{{ searchedStudents.name }}</td>
+        <td>{{ searchedStudents.class }}</td>
+      </tr>
+    </table>
+  </div>
+  
+  
+  <div>
+    <form #studentForm="ngForm"(ngSubmit)="onSubmit(studentForm.value)">     
+    <ul> 
+      <li>Student Name <input name="Name" [(ngModel)]="name"></li>
+      <li>Student Class <input name="Class" [(ngModel)]="class"></li>
+      <button type="submit">Save Student</button>
+    </ul>
+     </form>
+  
+  </div>
+  <!--<router-outlet></router-outlet>-->
